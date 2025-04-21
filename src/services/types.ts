@@ -49,3 +49,35 @@ export interface Order {
     shippingInfo: ShippingInfo;
     createdAt?: string;
 }
+
+export type PaymentMethod =
+  | 'PayPal'
+  | 'CreditCard'
+  | 'DebitCard'
+  | 'Pix'
+  | 'Boleto'
+  | 'ApplePay'
+  | 'GooglePay'
+  | 'Venmo'
+  | 'Oxxo'
+  | 'Cash'
+  | 'Alternative';
+
+export type PaymentStatus =
+  | 'Pending'
+  | 'Completed'
+  | 'Denied'
+  | 'Refunded'
+  | 'Reverted'
+  | 'Undefined';
+
+export interface Payment {
+  id: number;
+  orderId: number;
+  amount: number;
+  method: PaymentMethod;
+  status: PaymentStatus;
+  transactionId: string;
+  createdAt: string;
+  completedAt?: string;
+}
